@@ -113,11 +113,7 @@ void purchase(int *Totalprice){ THE MAKING ORDER FUNCTION
 		 *Totalprice=0;
 		int choice;
 
-    do{
-    	
-		  
- 
-		
+    do{	
 	printf("This is the menu of the products. Choose the number of your purchase:\n"
 	"1. book 200 MAD\n "
 	"2. skincare 700 MAD\n "
