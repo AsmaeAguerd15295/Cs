@@ -18,18 +18,18 @@ int menu();
  int main(){
      int first,second;
     first = login();
-    if(first = 1){
-        second= menu();
-        if(second = 1){
+   	if(first == 1){
+            second= menu();
+        if(second == 1){
             purchase();
         }
-        else if(second = 2){
+        else if(second == 2){  
+	
+        }
+        else if(second == 3){
 
         }
-        else if(second = 3){
-
-        }
-        else if(second = 4){
+        else if(second == 4){
 
         }
     }
@@ -118,7 +118,67 @@ void signup(char *demail[], int *dbank[]){
 		
 }
 
+#include<stdio.h>
+#include<string.h>
+void change(char login[], char Fname[],char Lname[],char Pass[], char Email[],char Bank[]);
 
+ int main(){
+ 	char login[100]="452", Fname[100], Lname[100], Pass[100],  Email[100], Bank[100] ;
+ 	login[strlen(login)]='\0';
+ 	change(login, Fname, Lname, Pass,  Email,Bank );
+ 	return 0;
+ 	
+ }
+ 
+ 
+  void change( char login[], char Fname[],char Lname[],char Pass[], char Email[],char Bank[] ){
+  	 int choice; 
+  	 
+  	
+  	printf("Enter the password to re-authenticate :");
+  	scanf("%s", Pass);
+  	
+  	
+  	if(strcmp(login, Pass )==0){
+	 
+  	printf("Select the number of information you would like to change: \n");
+	printf("1. Profile name \n");
+	printf("2. Password \n");
+ 	printf( "3. Email \n");
+	printf("4. Account number-banking account \n");
+	   
+	   scanf("%d", &choice);
+	   
+	   switch(choice){
+	   	
+	   	case 1:
+	   		printf("Enter a new profile name: ");
+	   		scanf("%s", Fname);
+	   		scanf("%s", Lname);
+	   		strcat(Fname, " ");
+	   		strcat(Fname, Lname);
+	   	case 2:
+	   		printf("Enter a new password: ");
+	   		scanf("%s", Pass);
+	    case 3:
+	    	printf("Enter a new email: ");
+	   		scanf("%s", Email);
+	   	case 4: 
+	   	printf("Enter a new bank account: ");
+	   		scanf("%s", Bank);
+	    
+	   		}
+	}
+	else{
+		printf("******Incorrect password******");
+	}
+	   
+	   
+  }
+  
+  
+  
+  
 
 
 
@@ -228,7 +288,7 @@ int purchase(){
 	   
   }
 
-  int menu(){
+  int menu(){ // The menu to choose what the user wants to do next
       int choice;
       printf("Welcome! PLease choose your next move");
       printf("1- Shop Section");
@@ -240,7 +300,7 @@ int purchase(){
       return choice;
   }
   
-  kkkk
+ 
   
   
 
