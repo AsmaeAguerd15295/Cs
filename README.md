@@ -219,7 +219,7 @@ int purchase(){
        
     }while(!strcmp("yes", answer));
     
-     printf("\nThe total price tof your purchases is: %d", Totalprice);
+     
 
      return Totalprice;
     
