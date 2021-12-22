@@ -41,7 +41,7 @@ int menu();
 }
 
 
-int login(){ 
+int loginANDsignup(){ 
     
 int flag=0,balance,i,conf;
 
@@ -129,35 +129,7 @@ else if(strcmp(usermail, email)!=0){
 
 
 
-void signup(char *demail[], int *dbank[]){ 
-    char email[size],Fname[size],Lname[size],Pass[size],Bank[size],Quest[size],Answer[size];
-    int balance[size];
-	printf("Enter your email: ");
-	scanf("%s", email);
-	printf("Enter your first name: ");
-	scanf("%s", Fname);
-	printf("Enter your last name: ");
-	scanf("%s", Lname);
-	strcat(Fname, " ");
-	strcat(Fname, Lname);
-	printf("Enter a password: ");
-	scanf(" %s", Pass);
-	printf("Enter your bank account: ");
-	scanf(" %s", Bank);
-	printf("Enter your balance: ");
-	scanf(" %d", &balance);
-	printf("Enter the secret question: ");
-	scanf(" %s", Quest);
-	printf("Enter the answer of the question: ");
-	scanf(" %s", Answer);
-    if(strcmp(*demail,email)!=0 && strcmp(*dbank,Bank)!=0){
-        printf("Welcome !");
-    }
-    else{
-        printf("Information entered already exists, try again");
-    }
-		
-}
+
 
 
   void change( char login[], char Fname[],char Lname[],char Pass[], char Email[],char Bank[] ){
