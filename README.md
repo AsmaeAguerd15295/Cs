@@ -76,8 +76,18 @@ while(!feof(fptr)){
     printf("Welcome! \n");
     conf = 1;
     }
-            else{
-            printf("User does not exist, How about signing up \n");
+        else if(strcmp(userpassword, pass)!=3 && strcmp(userpassword, pass)!=0){
+    	printf("The password is incorrect, answer the secret question: %s", question[3]);
+        scanf("%s", useranswer);
+        if(strcmp(useranswer, answer)==0)
+        printf("******You have logged in successfully*******");
+        else
+        printf("*****You failed at logging in*****");
+       
+		}
+	
+            else if(strcmp(usermail, email)!=0){
+            printf("User does not exist, Sign up \n");
             scanf("%s",cont);
             if(strcmp("yes",cont)==0){
                 printf("Enter an email: ");
