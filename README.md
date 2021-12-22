@@ -4,44 +4,42 @@
 #define store 100
 #define size 300
 
-int login();
-void signup();
+int loginANDsignup();
 void logout();
 void change(char login[], char Fname[],char Lname[],char Pass[], char Email[],char Bank[]);
 int purchase();
 void complete(int  balance[], int Totalprice, char bank[], char Bank[]);
-void delete();
+void del();
 int menu();
 
 
 
  int main(){
-     int first,second;
+     int move, ans, first,second;
      char log[100], Fname[100], Lname[100], Pass[100],  Email[100], Bank[100] ;
-    first = login();
-   	if(first == 1){
-            second= menu();
-        if(second == 1){
-            purchase();
-        }
-        else if(second == 2){  
- 	   log[strlen(log)]='\0';
- 	   change(log, Fname, Lname, Pass,  Email,Bank );
-	
-        }
-        else if(second == 3){
-
-        }
-        else if(second == 4){
-
-        }
-    }
+     char login[100], char Fname[100],char Lname[100],char Pass[100], char Email[100],char Bank[100]
+ 
+  void loginANDsignup();
+    
+    int answer; 
+    ans=menu();
+   	if(ans == 1){
+   	 move=purchase;
+   	    printf("The total price of your purchase is %d", Totalprice);
+	else if (ans==2);
+		change(login, Fname, Lname, Pass, Email,Bank);
+	else if(ans==3)
+		logout();
+    else if(ans==4)
+    	del();
+     
+          
 
  return 0 ;
 }
 
 
-int login(){ 
+void loginANDsignup(){ 
     
 int flag=0,balance,i,conf;
 
@@ -91,27 +89,27 @@ while(!feof(fptr)){
             printf("User does not exist, Sign up \n");
             scanf("%s",cont);
             if(strcmp("yes",cont)==0){
-              printf("Enter an email: ");
-              scanf(" %s",nemail);
-              printf("Enter bank account number: ");
-              scanf(" %s",nbank);
-                if(strcmp(email,nemail)!=0 && strcmp(bank,nbank)!=0){
-                  printf("Enter a password: ");
-                   scanf(" %s",npass);
-                   printf(" Enter first name: ");
-                   scanf(" %s",nfirst);
-	           printf("Enter your last name: ");
-	           scanf("%s", nlast);
-	           strcat(nfirst, " ");
-	           strcat(nfirst, nlast);
-	           printf("Enter your balance: ");
-	           scanf(" %d", nbalance);
-	           printf("Enter the secret question: ");
-	           scanf(" %s", nques);
-	           printf("Enter the answer of the question: ");
-	           scanf(" %s", nans);
-                   for(i = 1;i<SIZE;i++)
-                        printf(output," %s %s %s %s %s %s %s %s",nemail,nfirst,nlast,npass,nbank,nbalance,nques,nans);
+                printf("Enter an email: ");
+                scanf(" %s",nemail);
+                printf("Enter bank account number: ");
+                scanf(" %s",nbank);
+                    if(strcmp(email,nemail)!=0 && strcmp(bank,nbank)!=0){
+                        printf("Enter a password: ");
+                        scanf(" %s",npass);
+                        printf(" Enter first name: ");
+                        scanf(" %s",nfirst);
+	                    printf("Enter your last name: ");
+	                    scanf("%s", nlast);
+	                    strcat(nfirst, " ");
+	                    strcat(nfirst, nlast);
+	                    printf("Enter your balance: ");
+	                    scanf(" %d", nbalance);
+	                    printf("Enter the secret question: ");
+	                    scanf(" %s", nques);
+	                    printf("Enter the answer of the question: ");
+	                    scanf(" %s", nans);
+                        for(i = 1;i<SIZE;i++)
+                        fprintf(output," %s %s %s %s %s %s %s %s",nemail,nfirst,nlast,npass,nbank,nbalance,nques,nans);
                     }
                     
                     else{
@@ -120,9 +118,8 @@ while(!feof(fptr)){
                     }
                 }
             }
-         fclose(fptr);   
-         fclose(output);
-         return conf;
+        
+        
 }
 
 
@@ -143,6 +140,7 @@ while(!feof(fptr)){
 	printf("2. Password \n");
  	printf( "3. Email \n");
 	printf("4. Account number-banking account \n");
+	   
 	   scanf("%d", &choice);
 	   
 	   switch(choice){
@@ -156,7 +154,7 @@ while(!feof(fptr)){
 	   	case 2:
 	   		printf("Enter a new password: ");
 	   		scanf("%s", Pass);
-	        case 3:
+	    case 3:
 	    	printf("Enter a new email: ");
 	   		scanf("%s", Email);
 	   	case 4: 
@@ -169,12 +167,12 @@ while(!feof(fptr)){
 		printf("******Incorrect password******");
 	}
 	   
+	   
   }
-  
-  
   
   void logout(){
         int choice;
+        char ch; 
         FILE *fptr_output;
         printf("Press 1 if you want to log out.");
         scanf("%d", &choice);
@@ -184,11 +182,12 @@ while(!feof(fptr)){
             	printf("Could not access the file");
             	
 			}
-            while(char ch = fgetc(fptr_output)!= EOF){
+            while(char ch == fgetc(fptr_output) && fgetc(fptr_output)!= EOF){
                 fputc(ch, fptr_output);
             }
         printf("You have logged out of the program successfuly.");
     }
+}
 
   
   
@@ -234,6 +233,7 @@ int purchase(){
         }
         
          Totalprice= Totalprice+(quantity1*200)+(quantity2*700)+(quantity3*1000)+(quantity4*4000)+(quantity5*6000);
+         
        
         printf("Do you want to make another purchase? If yes type yes, if no type no: ");
        scanf(" %s", answer);
@@ -241,13 +241,11 @@ int purchase(){
        
     }while(!strcmp("yes", answer));
     
-     
+   
 
      return Totalprice;
     
 }
-
-
 
 void complete(int  balance[], int Totalprice, char bank[], char Bank[]){
   
@@ -279,25 +277,30 @@ else{
 }
 
 
+void del(){
 
-
-void delete(){
-	FILE* fptr = fopen("database.txt", "r");
 	char curr;
 	int account_number = 0;
-	int del;
-	curr = gets(fptr);
+	int dele;
+	
+	FILE* fptr ;
+	fptr = fopen("database.txt", "r");
+	if(fptr==NULL)
+	printf("Could access the file");
+	
+	curr = gets();
     if(curr!=EOF) {
-    	
-        account_number =1;}
-	fclose(fptr);
-	fopen("database.txt", "w");
+        account_number =1;
+	}
+
     while(1){
-      if(del != account_number);
+      if(dele != account_number);
         putc(curr, fptr);
         curr = getc(fptr);
-        if(curr =='\n') account_number++;
-        else if(curr == EOF) break;
+        if(curr =='\n')
+		 account_number++;
+        else if(curr == EOF) 
+		break;
 		
     }
     fclose(fptr);
@@ -313,8 +316,8 @@ void delete(){
       printf("Welcome! PLease choose your next move");
       printf("1- Shop Section");
       printf("2- Change account information");
-      printf("3- Delete account");
-      printf("4- Log out");
+      printf("3- Log out");
+      printf("4- Delete account ");
       scanf(" %s",choice);
 
       return choice;
