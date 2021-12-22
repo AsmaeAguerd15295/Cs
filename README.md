@@ -4,25 +4,42 @@
 #define store 100
 #define size 300
 
-void login();
+int login();
 void signup();
 void logout();
 void change(char login[], char Fname[],char Lname[],char Pass[], char Email[],char Bank[]);
-void purchase(int *Totalprice);
+int purchase();
 void complete();
 void delete();
+int menu();
 
 
 
  int main(){
+     int first,second;
+    first = login();
+    if(first = 1){
+        second= menu();
+        if(second = 1){
+            purchase();
+        }
+        else if(second = 2){
 
-    login();
+        }
+        else if(second = 3){
+
+        }
+        else if(second = 4){
+
+        }
+    }
+
  return 0 ;
 }
 
 
-void login(){ // THE LOGIN FUNCTION
-int flag=0,balance,i;
+int login(){ 
+int flag=0,balance,i,conf;
 
 char str[SIZE], usermail[SIZE], userpassword[SIZE], useranswer[SIZE],cont[SIZE];
 
@@ -53,22 +70,25 @@ while(!feof(fptr)){
  
     if(flag==1){
     printf("Welcome! \n");
+    conf = 1;
     }
 
     else{
         printf("User does not exist,how about signing up ?");
         scanf(" %s",cont);
         if(strcmp("yes",cont)==0){
-             signup(*email,*bank);
+             signup(email,&bank);
         }
 
     }
+
+    return conf;
 }
 
 
 
 
-void signup(char demail[], char dbank[]){ // THE SIGNUP FUNCTION
+void signup(char *demail[], int *dbank[]){ 
     char email[size],Fname[size],Lname[size],Pass[size],Bank[size],Quest[size],Answer[size];
     int balance[size];
 	printf("Enter your email: ");
@@ -89,7 +109,7 @@ void signup(char demail[], char dbank[]){ // THE SIGNUP FUNCTION
 	scanf(" %s", Quest);
 	printf("Enter the answer of the question: ");
 	scanf(" %s", Answer);
-    if(strcmp(demail,email)!=0 && strcmp(dbank,Bank)!=0){
+    if(strcmp(*demail,email)!=0 && strcmp(*dbank,Bank)!=0){
         printf("Welcome !");
     }
     else{
@@ -107,10 +127,10 @@ void signup(char demail[], char dbank[]){ // THE SIGNUP FUNCTION
 
 
 
-void purchase(int *Totalprice){    
+int purchase(){    
        char answer[3];
        int quantity1=0,quantity2=0,quantity3=0,quantity4=0,quantity5=0;
-		 *Totalprice=0;
+		 int Totalprice=0;
 		int choice;
 
     do{	
@@ -147,7 +167,7 @@ void purchase(int *Totalprice){
         scanf("%d", &quantity5);
         }
         
-         *Totalprice= *Totalprice+(quantity1*200)+(quantity2*700)+(quantity3*1000)+(quantity4*4000)+(quantity5*6000);
+         Totalprice= Totalprice+(quantity1*200)+(quantity2*700)+(quantity3*1000)+(quantity4*4000)+(quantity5*6000);
        
         printf("Do you want to make another purchase? If yes type yes, if no type no: ");
        scanf(" %s", answer);
@@ -155,7 +175,9 @@ void purchase(int *Totalprice){
        
     }while(!strcmp("yes", answer));
     
-     printf("\nThe total price tof your purchases is: %d", *Totalprice);
+     printf("\nThe total price tof your purchases is: %d", Totalprice);
+
+     return Totalprice;
     
 }
 
@@ -204,6 +226,18 @@ void purchase(int *Totalprice){
 	}
 	   
 	   
+  }
+
+  int menu(){
+      int choice;
+      printf("Welcome! PLease choose your next move");
+      printf("1- Shop Section");
+      printf("2- Change account information");
+      printf("3- Delete account");
+      printf("4- Log out");
+      scanf(" %s",choice);
+
+      return choice;
   }
   
   
