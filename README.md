@@ -9,7 +9,7 @@ void signup();
 void logout();
 void change(char login[], char Fname[],char Lname[],char Pass[], char Email[],char Bank[]);
 int purchase();
-void complete();
+void complete(int  balance[], int Totalprice, char bank[], char Bank[]);
 void delete();
 int menu();
 
@@ -224,7 +224,7 @@ int purchase(){
     
 }
 
-void complete(int  balance[], int Totalprice, char bank[], char Bank[]  ){
+void complete(int  balance[], int Totalprice, char bank[], char Bank[]){
   
  int bal;
  
@@ -240,18 +240,17 @@ else{
 	 scanf("%s", Bank);
 	 printf("Enter a balance:");
 	 scanf("%d", &bal);
-	 if(bal-*Totalprice>=0){
-	 		bal-=*Totalprice;
-	 		printf("This amount %d of money was retrieved from your bank account. Your bank account is at %d", Totalprice, bal");
+	 if(bal-Totalprice>=0){
+	 		bal-=Totalprice;
+	 		printf("This amount %d of money was retrieved from your bank account. Your bank account is at %d", Totalprice, bal);
 }
 }
 
-		 	
-		
-	 
 		 printf("Your purchase was dropped");
+
 		Totalprice=0;
 	
+}
 }
 
 
@@ -259,7 +258,7 @@ else{
 
   
 
-  int menu(){ // The menu to choose what the user wants to do next
+  int menu(){ 
       int choice;
       printf("Welcome! PLease choose your next move");
       printf("1- Shop Section");
