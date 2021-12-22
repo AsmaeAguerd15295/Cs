@@ -77,7 +77,7 @@ while(!feof(fptr)){
     conf = 1;
     }
         else if(strcmp(userpassword, pass)!=3 && strcmp(userpassword, pass)!=0){
-    	printf("The password is incorrect, answer the secret question: %s", question[3]);
+    	printf("The password is incorrect, answer the secret question: %s", question);
         scanf("%s", useranswer);
         if(strcmp(useranswer, answer)==0)
         printf("******You have logged in successfully*******");
