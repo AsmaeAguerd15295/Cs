@@ -17,6 +17,7 @@ int menu();
 
  int main(){
      int first,second;
+     char log[100], Fname[100], Lname[100], Pass[100],  Email[100], Bank[100] ;
     first = login();
    	if(first == 1){
             second= menu();
@@ -24,6 +25,8 @@ int menu();
             purchase();
         }
         else if(second == 2){  
+ 	   log[strlen(log)]='\0';
+ 	   change(log, Fname, Lname, Pass,  Email,Bank );
 	
         }
         else if(second == 3){
@@ -39,6 +42,7 @@ int menu();
 
 
 int login(){ 
+    
 int flag=0,balance,i,conf;
 
 char str[SIZE], usermail[SIZE], userpassword[SIZE], useranswer[SIZE],cont[SIZE];
@@ -118,18 +122,7 @@ void signup(char *demail[], int *dbank[]){
 		
 }
 
-#include<stdio.h>
-#include<string.h>
-void change(char login[], char Fname[],char Lname[],char Pass[], char Email[],char Bank[]);
 
- int main(){
- 	char login[100]="452", Fname[100], Lname[100], Pass[100],  Email[100], Bank[100] ;
- 	login[strlen(login)]='\0';
- 	change(login, Fname, Lname, Pass,  Email,Bank );
- 	return 0;
- 	
- }
- 
  
   void change( char login[], char Fname[],char Lname[],char Pass[], char Email[],char Bank[] ){
   	 int choice; 
@@ -177,15 +170,6 @@ void change(char login[], char Fname[],char Lname[],char Pass[], char Email[],ch
   }
   
   
-  
-  
-
-
-
-
-
-
-
 
 int purchase(){    
        char answer[3];
