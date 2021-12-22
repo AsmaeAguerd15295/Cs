@@ -9,7 +9,7 @@ void signup();
 void logout();
 void change(char login[], char Fname[],char Lname[],char Pass[], char Email[],char Bank[]);
 int purchase();
-void complete(int  balance[], int Totalprice, char bank[], char Bank[]);
+void complete();
 void delete();
 int menu();
 
@@ -77,11 +77,24 @@ while(!feof(fptr)){
     conf = 1;
     }
 
-    else{
-        printf("User does not exist,how about signing up ?");
-        scanf(" %s",cont);
+	     
+else if(strcmp(userpassword, pass)!=3 && strcmp(userpassword, pass)!=0){
+    	printf("The password is incorrect, answer the secret question: %s", question[3]);
+        scanf("%s", useranswer);
+        if(strcmp(useranswer, answer)==0)
+        printf("******You have logged in successfully*******");
+        else
+        printf("*****You failed at logging in*****");
+       
+		}
+else if(strcmp(usermail, email)!=0){
+		printf("User does not exist.  Sign up  \n");
+        scanf("%s",cont);
         if(strcmp("yes",cont)==0){
-             signup(email,&bank);
+        	
+	}
+}
+}
         }
 
     }
@@ -224,7 +237,7 @@ int purchase(){
     
 }
 
-void complete(int  balance[], int Totalprice, char bank[], char Bank[]){
+void complete(int  balance[], int Totalprice, char bank[], char Bank[]  ){
   
  int bal;
  
@@ -240,17 +253,18 @@ else{
 	 scanf("%s", Bank);
 	 printf("Enter a balance:");
 	 scanf("%d", &bal);
-	 if(bal-Totalprice>=0){
-	 		bal-=Totalprice;
-	 		printf("This amount %d of money was retrieved from your bank account. Your bank account is at %d", Totalprice, bal);
+	 if(bal-*Totalprice>=0){
+	 		bal-=*Totalprice;
+	 		printf("This amount %d of money was retrieved from your bank account. Your bank account is at %d", Totalprice, bal");
 }
 }
 
+		 	
+		
+	 
 		 printf("Your purchase was dropped");
-
 		Totalprice=0;
 	
-}
 }
 
 
@@ -258,7 +272,7 @@ else{
 
   
 
-  int menu(){ 
+  int menu(){ // The menu to choose what the user wants to do next
       int choice;
       printf("Welcome! PLease choose your next move");
       printf("1- Shop Section");
