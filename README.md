@@ -15,7 +15,7 @@ int menu();
 
 
  int main(){
-     int move, ans, first,second;
+     int move, ans;
      char log[100], Fname[100], Lname[100], Pass[100],  Email[100], Bank[100] ;
      char login[100], char Fname[100],char Lname[100],char Pass[100], char Email[100],char Bank[100]
  
