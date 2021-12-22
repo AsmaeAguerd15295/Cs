@@ -91,27 +91,27 @@ while(!feof(fptr)){
             printf("User does not exist, Sign up \n");
             scanf("%s",cont);
             if(strcmp("yes",cont)==0){
-                printf("Enter an email: ");
-                scanf(" %s",nemail);
-                printf("Enter bank account number: ");
-                scanf(" %s",nbank);
-                    if(strcmp(email,nemail)!=0 && strcmp(bank,nbank)!=0){
-                        printf("Enter a password: ");
-                        scanf(" %s",npass);
-                        printf(" Enter first name: ");
-                        scanf(" %s",nfirst);
-	                    printf("Enter your last name: ");
-	                    scanf("%s", nlast);
-	                    strcat(nfirst, " ");
-	                    strcat(nfirst, nlast);
-	                    printf("Enter your balance: ");
-	                    scanf(" %d", nbalance);
-	                    printf("Enter the secret question: ");
-	                    scanf(" %s", nques);
-	                    printf("Enter the answer of the question: ");
-	                    scanf(" %s", nans);
-                        for(i = 1;i<SIZE;i++)
-                        fprintf(output," %s %s %s %s %s %s %s %s",nemail,nfirst,nlast,npass,nbank,nbalance,nques,nans);
+              printf("Enter an email: ");
+              scanf(" %s",nemail);
+              printf("Enter bank account number: ");
+              scanf(" %s",nbank);
+                if(strcmp(email,nemail)!=0 && strcmp(bank,nbank)!=0){
+                  printf("Enter a password: ");
+                   scanf(" %s",npass);
+                   printf(" Enter first name: ");
+                   scanf(" %s",nfirst);
+	           printf("Enter your last name: ");
+	           scanf("%s", nlast);
+	           strcat(nfirst, " ");
+	           strcat(nfirst, nlast);
+	           printf("Enter your balance: ");
+	           scanf(" %d", nbalance);
+	           printf("Enter the secret question: ");
+	           scanf(" %s", nques);
+	           printf("Enter the answer of the question: ");
+	           scanf(" %s", nans);
+                   for(i = 1;i<SIZE;i++)
+                        printf(output," %s %s %s %s %s %s %s %s",nemail,nfirst,nlast,npass,nbank,nbalance,nques,nans);
                     }
                     
                     else{
@@ -143,7 +143,6 @@ while(!feof(fptr)){
 	printf("2. Password \n");
  	printf( "3. Email \n");
 	printf("4. Account number-banking account \n");
-	   
 	   scanf("%d", &choice);
 	   
 	   switch(choice){
@@ -157,7 +156,7 @@ while(!feof(fptr)){
 	   	case 2:
 	   		printf("Enter a new password: ");
 	   		scanf("%s", Pass);
-	    case 3:
+	        case 3:
 	    	printf("Enter a new email: ");
 	   		scanf("%s", Email);
 	   	case 4: 
@@ -170,8 +169,9 @@ while(!feof(fptr)){
 		printf("******Incorrect password******");
 	}
 	   
-	   
   }
+  
+  
   
   void logout(){
         int choice;
@@ -247,6 +247,8 @@ int purchase(){
     
 }
 
+
+
 void complete(int  balance[], int Totalprice, char bank[], char Bank[]){
   
  int bal;
@@ -275,6 +277,9 @@ else{
 	
 }
 }
+
+
+
 
 void delete(){
 	FILE* fptr = fopen("database.txt", "r");
