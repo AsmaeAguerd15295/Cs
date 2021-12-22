@@ -123,7 +123,6 @@ void signup(char *demail[], int *dbank[]){
 }
 
 
- 
   void change( char login[], char Fname[],char Lname[],char Pass[], char Email[],char Bank[] ){
   	 int choice; 
   	 
@@ -225,52 +224,40 @@ int purchase(){
     
 }
 
+void complete(int  balance[], int Totalprice, char bank[], char Bank[]  ){
+  
+ int bal;
+ 
+ if(balance-Totalprice>=0){
+ 	balance-=Totalprice;
+	 printf("This amount %d of money was retrieved from your bank account. Your bank account is at %d", Totalprice, balance);
+ }
+ 	
+else{
+	 for(int i=0; i<3; i++){
+	 printf("Your account does not have enough money to pay for the purchase you have just made");
+	 printf("Enter another bank account: ");
+	 scanf("%s", Bank);
+	 printf("Enter a balance:");
+	 scanf("%d", &bal);
+	 if(bal-*Totalprice>=0){
+	 		bal-=*Totalprice;
+	 		printf("This amount %d of money was retrieved from your bank account. Your bank account is at %d", Totalprice, bal");
+}
+}
 
-
-  void change( char login[], char Fname[],char Lname[],char Pass[], char Email[],char Bank[] ){ 
-  	 int choice; 
-  	 
-  	
-  	printf("Enter the password to re-authenticate :");
-  	scanf("%s", Pass);
-  	
-  	
-  	if(strcmp(login, Pass )==0){
+		 	
+		
 	 
-  	printf("Select the number of information you would like to change: \n");
-	printf("1. Profile name \n");
-	printf("2. Password \n");
- 	printf( "3. Email \n");
-	printf("4. Account number-banking account \n");
-	   
-	   scanf("%d", &choice);
-	   
-	   switch(choice){
-	   	
-	   	case 1:
-	   		printf("Enter a new profile name: ");
-	   		scanf("%s", Fname);
-	   		scanf("%s", Lname);
-	   		strcat(Fname, " ");
-	   		strcat(Fname, Lname);
-	   	case 2:
-	   		printf("Enter a new password: ");
-	   		scanf("%s", Pass);
-	    case 3:
-	    	printf("Enter a new email: ");
-	   		scanf("%s", Email);
-	   	case 4: 
-	   	printf("Enter a new bank account: ");
-	   		scanf("%s", Bank);
-	    
-	   		}
-	}
-	else{
-		printf("******Incorrect password******");
-	}
-	   
-	   
-  }
+		 printf("Your purchase was dropped");
+		Totalprice=0;
+	
+}
+
+
+
+
+  
 
   int menu(){ // The menu to choose what the user wants to do next
       int choice;
