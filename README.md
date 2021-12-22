@@ -6,7 +6,7 @@
 
 int login();
 void signup();
-void logout();
+void logout(fptr_output);
 void change(char login[], char Fname[],char Lname[],char Pass[], char Email[],char Bank[]);
 int purchase();
 void complete(int  balance[], int Totalprice, char bank[], char Bank[]);
@@ -173,6 +173,19 @@ while(!feof(fptr)){
 	   
   }
   
+  void logout(fptr_output){
+        int choice;
+        printf("Press 1 if you want to log out.");
+        scanf("%d", &choice);
+        if(choice == 1){
+            fopen("output.txt", "w");
+            while(char ch = fgetc(fptr)!= EOF){
+                fputc(ch, fptr_output);
+            }
+        prinf("You have logged out of the program successfuly.");
+    }
+
+  
   
 
 int purchase(){    
@@ -258,6 +271,27 @@ else{
 }
 }
 
+void delete(){
+	FILE* fptr = fopen("database.txt", "r");
+	char curr;
+	int account_number = 0;
+	int del;
+	curr = gets(fptr);
+    if(curr!=EOF) {
+        account_number =1;}
+	fclose(fptr);
+	fopen("database.txt", "w");
+    while(1){
+      if(del != account_number);
+        putc(curr, fptr);
+        curr = getc(fptr);
+        if(curr =='\n') account_number++;
+        if(curr == EOF) break;
+		
+    }
+    fclose(fptr);
+
+}
 
 
 
