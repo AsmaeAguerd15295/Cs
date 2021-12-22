@@ -88,19 +88,43 @@ else if(strcmp(userpassword, pass)!=3 && strcmp(userpassword, pass)!=0){
        
 		}
 else if(strcmp(usermail, email)!=0){
-		printf("User does not exist.  Sign up  \n");
+	printf("User does not exist.  Sign up  \n");
         scanf("%s",cont);
         if(strcmp("yes",cont)==0){
-        	
-	}
-}
-}
-        }
+	 printf("Enter an email: ");
+          scanf(" %s",nemail);
+          printf("Enter bank account number: ");
+           scanf(" %s",nbank);
+          if(strcmp(email,nemail)!=0 && strcmp(bank,nbank)!=0){
+           printf("Enter a password: ");
+           scanf(" %s",npass);
+           printf(" Enter first name: ");
+           scanf(" %s",nfirst);
+	   printf("Enter your last name: ");
+	   scanf("%s", nlast);
+	   strcat(nfirst, " ");
+	   strcat(nfirst, nlast);
+           printf("Enter your bank account: ");
+	   scanf(" %s", nbank);
+	   printf("Enter your balance: ");
+	   scanf(" %d", nbalance);
+	   printf("Enter the secret question: ");
+	   scanf(" %s", nques);
+	   printf("Enter the answer of the question: ");
+	   scanf(" %s", nans);
+                    }
+                    else{
+                        printf("Information entered already exists, try a new one");
 
-    }
+                    }
+                }
+            }
+            
 
     return conf;
-}
+        	
+	}
+
 
 
 
