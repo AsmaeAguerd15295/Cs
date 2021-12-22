@@ -50,6 +50,7 @@ char str[SIZE], usermail[SIZE], userpassword[SIZE], useranswer[SIZE],cont[SIZE],
 char email[store],first[store],last[store],pass[store],bank[store],question[store],answer[store];
 
 FILE *fptr;
+FILE *output;
 
 fptr= fopen("database.txt", "r");
 
@@ -103,24 +104,25 @@ while(!feof(fptr)){
 	                    scanf("%s", nlast);
 	                    strcat(nfirst, " ");
 	                    strcat(nfirst, nlast);
-                        printf("Enter your bank account: ");
-	                    scanf(" %s", nbank);
 	                    printf("Enter your balance: ");
 	                    scanf(" %d", nbalance);
 	                    printf("Enter the secret question: ");
 	                    scanf(" %s", nques);
 	                    printf("Enter the answer of the question: ");
 	                    scanf(" %s", nans);
+                        for(i = 1;i<SIZE;i++)
+                        fprintf(output," %s %s %s %s %s %s %s %s",nemail,nfirst,nlast,npass,nbank,nbalance,nques,nans);
                     }
+                    
                     else{
                         printf("Information entered already exists, try a new one");
 
                     }
                 }
             }
-            
-
-    return conf;
+         fclose(fptr);   
+         fclose(output);
+         return conf;
 }
 
 
