@@ -21,7 +21,7 @@ void delete();
 }
 
 
-int login(){ // THE LOGIN FUNCTION
+void login(){ // THE LOGIN FUNCTION
 int flag=0,balance,i;
 
 char str[SIZE], usermail[SIZE], userpassword[SIZE], useranswer[SIZE],cont[SIZE];
@@ -107,7 +107,7 @@ void signup(char demail[], char dbank[]){ // THE SIGNUP FUNCTION
 
 
 
-void purchase(int *Totalprice){ //THE MAKING ORDER FUNCTION
+void purchase(int *Totalprice){    
        char answer[3];
        int quantity1=0,quantity2=0,quantity3=0,quantity4=0,quantity5=0;
 		 *Totalprice=0;
@@ -161,10 +161,7 @@ void purchase(int *Totalprice){ //THE MAKING ORDER FUNCTION
 
 
 
-
- 
- 
-  void change( char login[], char Fname[],char Lname[],char Pass[], char Email[],char Bank[] ){ //THE MAKING CHANGE FUNCTION
+  void change( char login[], char Fname[],char Lname[],char Pass[], char Email[],char Bank[] ){ 
   	 int choice; 
   	 
   	
